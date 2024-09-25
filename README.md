@@ -2,14 +2,14 @@
 
 ## Project Overview
 
-FutureStack is an innovative project aimed at leveraging the power of Stacks (STX) blockchain technology to address pressing global challenges. By creating a sustainable ecosystem where real-world problems meet blockchain solutions.
+FutureStack is an innovative project leveraging the power of Stacks (STX) blockchain technology to address pressing global challenges. By creating a sustainable ecosystem where real-world problems meet blockchain solutions, fostering community-driven development and decision-making.
 
 ## Features
 
 - Propose and track blockchain-based solutions to global issues
 - Community engagement through transparent solution management
 - Integration with Stacks blockchain for secure and decentralized operations
-- Voting system for community-driven solution prioritization
+- Advanced quadratic voting system for nuanced community decision-making
 - Funding mechanism for direct financial support of solutions
 - Role-based access control for enhanced governance
 
@@ -30,17 +30,32 @@ The core of FutureStack is a Clarity smart contract that manages the lifecycle o
    - Update solution status (admin only)
 
 2. Community Engagement:
-   - Vote for solutions
+   - Quadratic voting system for solutions
    - Donate STX to support solutions
 
 3. Governance:
    - User role management (admin/member)
    - Role-based access control for sensitive operations
 
-4. Data Structures:
-   - Solutions map: Stores all proposed solutions with extended attributes
+4. Voting Credit System:
+   - Initialize and manage user voting credits
+   - Track user votes across solutions
+
+5. Data Structures:
+   - Solutions map: Stores all proposed solutions with extended attributes including quadratic voting score
    - User roles map: Manages user roles for governance
+   - User voting credits map: Tracks available voting credits for each user
+   - User votes map: Records votes cast by each user for each solution
    - Solution counter: Ensures unique IDs for each solution
+
+## Quadratic Voting System
+
+Our quadratic voting system allows for more nuanced expression of preferences:
+
+- Users are allocated a fixed number of voting credits
+- The cost of voting increases quadratically with the number of votes cast for a single solution
+- This system prevents any single user from having disproportionate influence
+- The quadratic nature encourages users to spread their votes across multiple solutions they support
 
 ## Getting Started
 
@@ -72,7 +87,7 @@ The core of FutureStack is a Clarity smart contract that manages the lifecycle o
 
 ### Voting for a Solution
 ```clarity
-(contract-call? .futurestack vote-for-solution solution-id)
+(contract-call? .futurestack quadratic-vote-for-solution solution-id vote-count)
 ```
 
 ### Donating to a Solution
@@ -83,6 +98,11 @@ The core of FutureStack is a Clarity smart contract that manages the lifecycle o
 ### Setting User Roles (Admin Only)
 ```clarity
 (contract-call? .futurestack set-user-role user-principal "admin")
+```
+
+### Initializing Voting Credits (Admin Only)
+```clarity
+(contract-call? .futurestack initialize-voting-credits user-principal initial-credits)
 ```
 
 (Note: More detailed usage instructions to be added as the project develops)
