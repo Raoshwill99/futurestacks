@@ -2,13 +2,16 @@
 
 ## Project Overview
 
-FutureStack is an innovative project aimed at leveraging the power of Stacks (STX) blockchain technology to address pressing global challenges. Our mission is to create a sustainable ecosystem where real-world problems meet blockchain solutions.
+FutureStack is an innovative project aimed at leveraging the power of Stacks (STX) blockchain technology to address pressing global challenges. By creating a sustainable ecosystem where real-world problems meet blockchain solutions.
 
 ## Features
 
 - Propose and track blockchain-based solutions to global issues
 - Community engagement through transparent solution management
 - Integration with Stacks blockchain for secure and decentralized operations
+- Voting system for community-driven solution prioritization
+- Funding mechanism for direct financial support of solutions
+- Role-based access control for enhanced governance
 
 ## Technical Stack
 
@@ -24,10 +27,19 @@ The core of FutureStack is a Clarity smart contract that manages the lifecycle o
 1. Solution Management:
    - Add new solutions
    - Retrieve solution details
-   - Update solution status
+   - Update solution status (admin only)
 
-2. Data Structures:
-   - Solutions map: Stores all proposed solutions
+2. Community Engagement:
+   - Vote for solutions
+   - Donate STX to support solutions
+
+3. Governance:
+   - User role management (admin/member)
+   - Role-based access control for sensitive operations
+
+4. Data Structures:
+   - Solutions map: Stores all proposed solutions with extended attributes
+   - User roles map: Manages user roles for governance
    - Solution counter: Ensures unique IDs for each solution
 
 ## Getting Started
@@ -53,11 +65,31 @@ The core of FutureStack is a Clarity smart contract that manages the lifecycle o
 
 ## Usage
 
-(To be expanded with specific instructions as the project develops)
+### Proposing a Solution
+```clarity
+(contract-call? .futurestack add-solution "Solution Name" "Description" "Impact Area")
+```
+
+### Voting for a Solution
+```clarity
+(contract-call? .futurestack vote-for-solution solution-id)
+```
+
+### Donating to a Solution
+```clarity
+(contract-call? .futurestack donate-to-solution solution-id amount)
+```
+
+### Setting User Roles (Admin Only)
+```clarity
+(contract-call? .futurestack set-user-role user-principal "admin")
+```
+
+(Note: More detailed usage instructions to be added as the project develops)
 
 ## Contributing
 
-We welcome contributions to FutureStack! Please read our contributing guidelines (link to be added) before submitting pull requests.
+We welcome contributions to FutureStack! Please read the contributing guidelines
 
 ## License
 
@@ -65,8 +97,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For any queries or suggestions, please open an issue in this repository or contact the developer.
+For any queries or suggestions, please open an issue in this repository or contact the maintainers at [email to be added].
 
 ---
 
-FutureStack is committed to creating a better future through blockchain technology
+FutureStack is committed to creating a better future through blockchain technology.
