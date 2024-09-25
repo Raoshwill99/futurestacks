@@ -57,7 +57,7 @@ The core of FutureStack is a Clarity smart contract that manages the lifecycle o
 
 ## Contributing
 
-We welcome contributions to FutureStack! Please read our contributing guidelines (link to be added) before submitting pull requests.
+We welcome contributions to FutureStack!
 
 ## License
 
