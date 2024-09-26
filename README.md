@@ -97,7 +97,7 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For any queries or suggestions, please open an issue in this repository or contact the maintainers at [email to be added].
+For any queries regarding this project, please open an issue in the GitHub repository.
 
 ---
 
