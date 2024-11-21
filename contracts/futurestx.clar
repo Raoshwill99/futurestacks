@@ -161,12 +161,3 @@
   (default-to u"member" (get role (map-get? user-roles { user: user })))
 )
 
-;; Helper function to calculate square root of an integer
-(define-private (sqrti (y uint))
-  (let loop ((x u1))
-    (if (> x y)
-      (- x u1)
-      (loop (+ u1 (/ y x)))
-    )
-  )
-)
