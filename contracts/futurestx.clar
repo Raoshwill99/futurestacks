@@ -160,4 +160,3 @@
 (define-read-only (get-user-role (user principal))
   (default-to u"member" (get role (map-get? user-roles { user: user })))
 )
-
